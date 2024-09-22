@@ -45,7 +45,7 @@ app.post('/bfhl', upload.single('file'), (req, res) => {
     // User ID creation
     const fullName = "john_doe";
     const dob = "17091999";
-    const userId = ${fullName}_${dob};
+    const userId = `${fullName}_${dob}`;
 
     res.json({
         is_success: true,
@@ -67,5 +67,5 @@ app.get('/bfhl', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(Server is running on http://localhost:${port});
+    console.log(`Server is running on http://localhost:${port}`);
 });
