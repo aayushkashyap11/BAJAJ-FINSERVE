@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,7 +26,7 @@ app.post('/bfhl', upload.single('file'), (req, res) => {
     const highestLowercase = alphabets
         .filter(char => char >= 'a' && char <= 'z')
         .sort()
-        .pop() || ' a'; // Adjusted to match the expected output with space
+        .pop(); // Adjusted to match the expected output with space
 
     // File handling
     let fileValid = false;
@@ -43,7 +45,7 @@ app.post('/bfhl', upload.single('file'), (req, res) => {
     // User ID creation
     const fullName = "john_doe";
     const dob = "17091999";
-    const userId = `${fullName}_${dob}`;
+    const userId = ${fullName}_${dob};
 
     res.json({
         is_success: true,
@@ -65,5 +67,5 @@ app.get('/bfhl', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
+    console.log(Server is running on http://localhost:${port});
 });
